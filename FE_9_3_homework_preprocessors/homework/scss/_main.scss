@@ -1,0 +1,231 @@
+@import url(https://fonts.googleapis.com/css?family=PT+Serif);
+
+@mixin title {  
+    color: $text_color;
+    margin-bottom: 18px;
+    line-height: 1.5em;
+}
+
+@mixin header($margin){  
+    color: $main_color;
+    text-align: right;
+    text-transform: uppercase;
+    margin-top: $margin;
+}
+
+@mixin big_title {
+    @if $size_font == 20px {
+        font-size: $size_font + 10px;
+    }
+} 
+
+* {
+    margin: 0;
+    padding: 0;
+    background-color: $background_color;
+    font-family: $font;
+}
+
+.main-wrapper{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    
+    .logo{
+        margin-left: 7px;
+        
+        img{
+            height: 245px;
+            width: 380px;
+        }
+    }
+
+    nav{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        border-top: 1px solid $border_color;
+        border-bottom: 1px solid $border_color;
+        padding: 19px 0 18px 0;
+        text-transform: uppercase;
+        margin-bottom: 35px;
+        
+        a {
+            text-decoration: none;
+            color: $main_color;
+            font-size: $size_font;
+                        
+            &:hover{
+                font-weight: 600;
+            }
+
+            &:active{
+                color: darken($main_color, 15%);
+            }           
+        }
+    }
+}
+
+.toolbar{
+    margin-top: 15px;
+    margin-bottom: 20px;
+    text-align: right;
+
+    input{
+        border: 1px solid $main_color;
+        height: 40px;
+        width: 190px;
+        color: $main_color;
+        outline: none;
+        padding-left: 20px;
+        font-size: $size_font - 4px;
+        font-family: $font_arial;
+
+        &::placeholder{
+            color: $main_color;
+        }
+    }
+}
+
+.post-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    
+    article{
+        background-color: $articl_bg_color;
+        width: 46.5%;
+        margin-bottom: 20px;
+        padding: 10px;
+        
+        img{
+           width: 100%;
+        }
+
+        & div{
+            display: block;
+            padding:0 10px 0 10px;
+            background-color: inherit;
+            
+            .post-description{
+                padding: 10px 0 10px 0;
+                border-bottom: 1px solid $border_color;
+                font-size: $size_font - 4px;
+                color: $descriptiot_color;
+            }
+    
+            h3{
+                text-transform: uppercase;
+                color: $title_color;
+                margin: 6px 0 2px 0;
+                background-color: inherit;
+                font-size: $size_font + 2px;
+
+            }  
+           
+    
+            p{
+                @include title;
+                font-size: $size_font - 2px;
+                background-color: inherit;
+                @if $size_font == 20px {
+                    font-size: $size_font;
+                    line-height: 1.4em;
+                } 
+            }    
+        }
+    }
+}
+
+.about{
+    margin: 0 10px 0 10px;
+        
+    img{
+        width: 100%;
+    }
+
+    h1{
+        @include header(70px);   
+        @include big_title;
+        
+    }
+
+    p{
+        @include title;
+        line-height: 1.7em;
+
+        @if $size_font == 20px {
+            line-height: 1.3em;
+            font-size: $size_font + 1px;
+            margin-bottom: 21px;
+        }
+    }
+}
+
+.contact-form{
+    display: flex;
+    flex-direction: column;
+      
+    input{
+        margin-bottom: 20px; 
+        height: 40px;
+        color: $main_color;
+        outline: none;
+        padding: 3px 0 4px 20px;
+        font-size: $size_font - 2px;
+        border: 1px solid $border_color;
+        font-family: $font_arial;
+    }
+
+    textarea{
+        padding: 15px 0 4px 20px;
+        font-size: $size_font - 2px;
+        color: $main_color;
+        border: 1px solid $border_color;
+        font-family: $font_arial;
+        outline: none;
+    }
+
+    h1{
+        @include header(55px);
+        @include big_title;
+    }
+    
+
+    h4{
+        @include header(auto);
+        margin-bottom: 25px;
+    }
+
+    .button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: flex-end;
+        height: 41px;
+        width: 208px;
+        color: white;
+        background-color:$main_color;
+        text-transform: uppercase;
+        margin-top: 20px;
+        text-decoration: none;
+        font-size: $size_font - 4px;
+        font-family: $font_arial;
+        font-weight: 600;
+
+        &:hover{
+            background-color: darken($main_color, 10%);
+        }
+    }
+}
+
+footer{
+    margin: 10px 0 10px 0;
+    font-size: 13px;
+}
