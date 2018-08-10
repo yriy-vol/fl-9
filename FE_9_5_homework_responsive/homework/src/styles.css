@@ -1,0 +1,258 @@
+/*
+ * Feel free to change name of colors if you need it
+ * Feel free to add new colors if you need it
+ */
+/* :root {
+  --bg-color--dark: #0a1223;
+  --bg-color--light: #fff;
+  --link: #5d5d5d;
+  --link--active: #54597d;
+  --link--hover:  #54597d;
+  --article-title: #ddd;
+  --article-title--dark: #000;
+  --thumbnail--description: #5d5d5d;
+
+  These styles are needed only for media query max-width: 575px
+
+  The 'Up' button (circle button at right bottom corner)
+  --btn-color: #fff;
+  --btn-bg-color: #5ebcff;
+
+  --navigation-border-bottom: #ddd;
+  --thumbnail-title: #484747;
+} */
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: 'Roboto', sans-serif;
+  background-color: #0a1223; 
+  font-size: 14px;
+}
+
+.header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1400px;
+}
+
+.header__navigation{
+  align-self: flex-end;
+  margin-top: 30px;
+}
+
+.header__link{
+  text-decoration: none;
+  color: #5d5d5d;
+  margin-right: 30px;
+  font-size: 20px;
+}
+
+.header__link:hover,
+.header__link:active{
+  color: #54597d;
+  font-weight: 600;
+}
+
+.header__title{
+  margin-top: 180px;
+  margin-bottom: 170px;
+  color:#ddd;
+  font-size: 70px;
+  text-align: center;
+  width: 95%;
+}
+
+.header__title-italic{
+  font-style: italic;
+}
+
+/* ********* main-bloc ****************************** */
+
+.main-block{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1100px;
+  margin-bottom: 40px;
+}
+
+.main-block__info{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.main-block__description{
+  max-width: 480px;
+  width: 100%;
+}
+
+.main-block__title{
+  background: linear-gradient(90deg, #ddd 25%, #5d5d5d 60%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color:#ddd;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.main-block__text{
+  text-indent: 20px;
+  text-align: justify;
+  line-height: 1.3em;
+  color: #5d5d5d;
+}
+
+.main-info__picture{
+  max-width: 470px;
+  width: 100%;
+  background-size: cover;
+}
+
+.main-block .main-block__info:nth-child(even) .main-info__picture{
+  order: -1;
+}
+
+.button-up{
+  display:none;
+}
+
+/* *********** media ***************************** */
+
+@media (max-width: 991px){
+
+   .header__navigation{
+    align-self: center;
+  }
+
+  .header__link:last-child{
+    margin-right: 0;
+  }
+
+  .header__title{
+    width: 95%;
+    font-size: 50px;
+  }
+
+  .main-block{
+    width: 100%;
+  }
+
+ .main-block__info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .main-block__description{
+    max-width: 450px;
+    width: 100%;
+  }
+
+  .main-info__picture{
+    margin-top: 30px;
+  } 
+
+  .main-block .main-block__info:nth-child(even) .main-info__picture{
+    order: 0;
+  }
+
+}
+
+@media (max-width: 575px){
+
+  body{
+    background-color: #fff;
+  }
+
+  .header__navigation{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 0;
+  }
+
+  .header__link{
+    margin: 0;
+    padding:15px 0 15px 10px;
+    font-size: 16px;
+    border-bottom: 1px solid #5d5d5d;
+    font-weight: 400;
+  }
+
+  .header__link:hover,
+  .header:active{
+    font-weight: 600;
+  }
+
+  .header__title{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 95%;
+    font-size: 50px;
+    color: #000;
+  }
+  .main-block{
+    width: 85%;
+  }
+
+  .main-block__title{
+    color: #484747;
+    margin-bottom: 20px;
+    font-size: 30px;
+    background: linear-gradient(90deg, #484747 100%,#5d5d5d 0%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .main-info__picture{
+    min-width: 200px;
+  }
+
+  .button-up{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #5ebcff;
+    color: #fff;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    font-size: 25px;
+    box-shadow: 8px 12px 20px #ddd;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .button-up:hover{
+    background-color: #24a4ff;
+  }
+
+  .button-up:active{
+    bottom: 28px;
+    right: 28px;
+    box-shadow: 6px 10px 17px #ddd;
+    background-color: #24a4ff;
+    font-size: 30px;
+  }
+
+}
